@@ -3,6 +3,7 @@ var router = express.Router();
 const StuentDB=require('../src/mongodb/ClassDB');
 const UserDB = require('../src/mongodb/DBUser');
 const ClientDB = require('../src/mongodb/DBClient');
+const ProductDB = require('../src/mongodb/DBProduct');
 // request, co cac tham so de sever tra ve cua client yeu cau
 // res những cái sever trả về lại client.
 
@@ -76,6 +77,25 @@ router.post('/api/client', async function(req,res,next){
     address:address,
     email:email
   })
+})
+
+//api addProduct
+router.post('/api/product', async function(req,res, next){
+  try{
+    console.log(req.body)
+    const name = req.body.name;
+    const price = req.body.price;
+    const count = req.body.count;
+    await ProductDB.addProduct(name,price,count);
+    console.log('log',{name,price,count});
+    res.json({
+      message:'dang ky thanh cong'
+     })
+  }catch(e){
+    res.json({
+      message:"dang ky ko thanh cong"
+    })
+  }
 })
 
 // Get Register Page

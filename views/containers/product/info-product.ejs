@@ -17,7 +17,7 @@
                                         Tên Sản Phẩm
                                     </th>
                                     <th>
-                                        Giá 
+                                        Giá
                                     </th>
                                     <th>
                                         Số Lượng
@@ -70,9 +70,6 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        ID
-                                    </th>
-                                    <th>
                                         Tên Sản Phẩm
                                     </th>
                                     <th>
@@ -87,24 +84,20 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <input type="text" placeholder="ID">
-                                        </td>
-                                        <td>
-                                            <input type="text" placeholder="Tên SP">
-                                        </td>
-                                        <td>
-                                            <input type="text" placeholder="Giá">
-                                        </td>
-                                        <td>
-                                            <input type="text" placeholder="Số Lượng">
-                                        </td>
-                                        <td>
-                                            <input type="file" placeholder="Image">
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-submit">Save</button>
-                                        </td>
+                                        <form name="fr" action="/api/product" method="post">
+                                            <td>
+                                                <input form="fr" name="name" type="text" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input  form="fr"  name="price" type="number" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input  form="fr"  name="count" type="number" class="form-control">
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-submit">Save</button>
+                                            </td>
+                                        </form>
                                     </tr>
                                 </tbody>
                             </table>
