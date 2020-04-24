@@ -18,6 +18,12 @@ const ClientDB = {
     },
     getListClient: async function(){
         return await ClientModel.find({});
+    },
+    findClient: async function(username,password){
+        return ClientModel.findOne({
+            username:username,
+            password:password
+        })
     }
 }
 
