@@ -152,4 +152,15 @@ router.get('/products', async function(req, res, next){
   res.render('product', { title: 'Product',listProduct:listProduct});
 });
 
+
+// Get Product page//
+router.get('/api/products', async function(req, res, next){
+  const listProduct = await ProductDB.getListProducts();
+  console.log("list products:",listProduct)
+  res.json({
+    data:listProduct
+  })
+});
+
+
 module.exports = router;
