@@ -13,6 +13,16 @@ router.get('/login', function(req, res, next){
   res.render('login', {title: 'Login'});
 });
 
+//Get Edit Product Page
+router.get('/edit-product', function(req,res,next){
+  res.render('edit-product', {title : 'Edit Product'});
+});
+
+//Get Edit Client Page
+router.get('/edit-client', function(req,res,next){
+  res.render('edit-client', {title : 'Edit Client'});
+});
+
 // api login
 router.post('/api/login',async function(req,res,next) {
    const username  =req.body.username;

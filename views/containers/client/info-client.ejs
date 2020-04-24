@@ -54,8 +54,10 @@
                                             <%= item.email %>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-success"><i
-                                                    class="fas fa-edit"></i></button>
+                                            <a href="/edit-client">
+                                                <button type="button" class="btn btn-success"><i
+                                                        class="fas fa-edit"></i></button>
+                                            </a>
                                             <button type="button" class="btn btn-danger"><i
                                                     class="far fa-trash-alt"></i></button>
                                         </td>
@@ -98,7 +100,7 @@
                                 </div>
                                 <div class="form-group" style="width: 30%;">
                                     <label for="email">Email</label>
-                                    <input name="email" type="text" class="form-control"  required style="width:100%">
+                                    <input name="email" type="text" class="form-control" required style="width:100%">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-submit">Save</button>
