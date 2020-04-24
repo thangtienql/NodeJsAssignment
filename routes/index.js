@@ -61,21 +61,27 @@ router.post('/api/register_user', async function(req,res,next){
 
 //api client
 router.post('/api/client', async function(req,res,next){
-  const username = req.body.username;
-  const password = req.body.password;
-  const fullname = req.body.fullname;
-  const phone = req.body.phone;
-  const address = req.body.address;
-  const email = req.body.email;
-  await ClientDB.addClient(username,password,fullname,phone,address,email);
-  res.json({
-    username:username,
-    password:password,
-    fullname:fullname,
-    phone:phone,
-    address:address,
-    email:email
-  })
+  try{
+    const username = req.body.username;
+    const password = req.body.password;
+    const fullname = req.body.fullname;
+    const phone = req.body.phone;
+    const address = req.body.address;
+    const email = req.body.email;
+    await ClientDB.addClient(username,password,fullname,phone,address,email);
+    res.json({
+      username:username,
+      password:password,
+      fullname:fullname,
+      phone:phone,
+      address:address,
+      email:email
+    })
+  }catch(e){
+    res.json({
+      message:"dang ky ko thanh cong"
+    })
+  } 
 })
 
 //api addProduct
@@ -124,15 +130,19 @@ router.get('/register', function(req, res, next){
 });
 
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/home', async function(req, res, next) {
+  const listClient = await ClientDB.getListClient();
+  const listProduct = await ProductDB.getListProducts();
+  res.render('index', { title: 'Express', listClient:listClient, listProduct:listProduct});
 });
 
 
 
 /* GET Client page. */
-router.get('/clients', function(req, res, next) {
-  res.render('client', { title: 'Client'});
+router.get('/clients', async function(req, res, next) {
+  const listClient = await ClientDB.getListClient();
+  console.log("list client", listClient)
+  res.render('client', { title: 'Client', listClient:listClient});
 });
 
 // Get Product page//

@@ -25,21 +25,24 @@
                   </th>
                 </thead>
                 <tbody>
+                  <% listProduct.forEach(function(item){ %>
                   <tr>
                     <td>
-                      Xà Phòng
+                      <%= item.name %>
                     </td>
                     <td>
-                      50000
+                      <%= item.price %>
                     </td>
                     <td>
-                      25
+                      <%= item.count %>
                     </td>
                     <td>
-                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i
+                          class="fas fa-edit"></i></button>
                       <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </td>
                   </tr>
+                  <% }); %>
                 </tbody>
               </table>
             </div>
@@ -50,7 +53,6 @@
         <div class="card card-plain">
           <div class="card-header card-header-primary">
             <h4 class="card-title mt-0">Thông Tin Khách Hàng</h4>
-            <p class="card-category">Customer</p>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -60,127 +62,51 @@
                     Tên Khách Hàng
                   </th>
                   <th>
+                    Username
+                  </th>
+                  <th>
+                    Password
+                  </th>
+                  <th>
                     Số Điện Thoại
                   </th>
                   <th>
                     Địa Chỉ
                   </th>
                   <th>
-                    Ngày Sinh
+                    Email
                   </th>
                   <th>
                     Actions
                   </th>
                 </thead>
                 <tbody>
+                  <% listClient.forEach(function(item){ %>
                   <tr>
                     <td>
-                      Dakota Rice
+                      <%= item.fullname %>
                     </td>
                     <td>
-                      150000
+                      <%= item.username %>
                     </td>
                     <td>
-                      52
+                      <%= item.password %>
                     </td>
                     <td>
-                      21/02/1999
+                      <%= item.phone %>
+                    </td>
+                    <td>
+                      <%= item.address %>
+                    </td>
+                    <td>
+                      <%= item.email %>
                     </td>
                     <td>
                       <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
                       <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      Minerva Hooper
-                    </td>
-                    <td>
-                      250000
-                    </td>
-                    <td>
-                      66
-                    </td>
-                    <td>
-                      21/02/1999
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Sage Rodriguez
-                    </td>
-                    <td>
-                      600000
-                    </td>
-                    <td>
-                      11
-                    </td>
-                    <td>
-                      21/02/1999
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Philip Chaney
-                    </td>
-                    <td>
-                      420000
-                    </td>
-                    <td>
-                      22
-                    </td>
-                    <td>
-                      21/02/1999
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Doris Greene
-                    </td>
-                    <td>
-                      210000
-                    </td>
-                    <td>
-                      41
-                    </td>
-                    <td>
-                      21/02/1999
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Mason Porter
-                    </td>
-                    <td>
-                      135555
-                    </td>
-                    <td>
-                      50
-                    </td>
-                    <td>
-                      21/02/1999
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-                    </td>
-                  </tr>
+                  <% }); %>
                 </tbody>
               </table>
             </div>
