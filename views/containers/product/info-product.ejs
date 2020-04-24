@@ -11,9 +11,6 @@
                             <table class="table">
                                 <thead class=" text-primary">
                                     <th>
-                                        ID
-                                    </th>
-                                    <th>
                                         Tên Sản Phẩm
                                     </th>
                                     <th>
@@ -22,37 +19,69 @@
                                     <th>
                                         Số Lượng
                                     </th>
-                                    <td>
-                                        Hình Ảnh Sản Phẩm
-                                    </td>
                                     <th>
                                         Actions
                                     </th>
                                 </thead>
                                 <tbody>
+                                    <% listProduct.forEach(function(item){ %>
                                     <tr>
                                         <td>
-                                            1
+                                            <%= item.name %>
                                         </td>
                                         <td>
-                                            Xà Phòng
+                                            <%= item.price %>
                                         </td>
                                         <td>
-                                            50000
+                                            <%= item.count %>
                                         </td>
                                         <td>
-                                            25
-                                        </td>
-                                        <td>
-                                            <img class="img-sp" width="100px" src="/images/sp1.jpg">
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-success"><i
-                                                    class="fas fa-edit"></i></button>
+                                            <button type="button" class="btn btn-success" data-toggle="modal"
+                                                data-target="#exampleModal"><i class="fas fa-edit"></i></button>
                                             <button type="button" class="btn btn-danger"><i
                                                     class="far fa-trash-alt"></i></button>
                                         </td>
                                     </tr>
+                                    <% }); %>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form class="form-inline" name="fr" action="" method="post">
+                                                        <div class="form-group mr-2" style="width: 100%;">
+                                                            <label for="email">Tên Sản Phẩm:</label>
+                                                            <input name="name" type="text" class="form-control"
+                                                                style="width:100%" value="">
+                                                        </div>
+                                                        <div class="form-group" style="width: 100%;">
+                                                            <label for="price">Giá Sản Phẩm:</label>
+                                                            <input name="price" type="text" class="form-control"
+                                                                style="width:100%" value="">
+                                                        </div>
+                                                        <div class="form-group" style="width: 100%;">
+                                                            <label for="count">Số lượng Sản Phẩm:</label>
+                                                            <input name="count" type="text" class="form-control"
+                                                                style="width:100%" value="">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </tbody>
                             </table>
                         </div>
@@ -67,8 +96,8 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
+                            <!-- <table class="table"> -->
+                            <!-- <thead class=" text-primary">
                                     <th>
                                         Tên Sản Phẩm
                                     </th>
@@ -81,26 +110,29 @@
                                     <th>
                                         Hình Ảnh Sản Phẩm
                                     </th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <form name="fr" action="/api/product" method="post">
-                                            <td>
-                                                <input form="fr" name="name" type="text" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input  form="fr"  name="price" type="number" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input  form="fr"  name="count" type="number" class="form-control">
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-submit">Save</button>
-                                            </td>
-                                        </form>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                </thead> -->
+                            <!-- <tbody> -->
+                            <!-- <tr> -->
+                            <form class="form-inline" name="fr" action="/api/product/add" method="post">
+                                <div class="form-group mr-2" style="width: 30%;">
+                                    <label for="email">Tên Sản Phẩm:</label>
+                                    <input name="name" type="text" class="form-control" style="width:100%">
+                                </div>
+                                <div class="form-group" style="width: 30%;">
+                                    <label for="price">Giá Sản Phẩm:</label>
+                                    <input name="price" type="text" class="form-control" style="width:100%">
+                                </div>
+                                <div class="form-group" style="width: 30%;">
+                                    <label for="count">Số lượng Sản Phẩm:</label>
+                                    <input name="count" type="text" class="form-control" style="width:100%">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-submit">Save</button>
+                                </div>
+                            </form>
+                            <!-- </tr> -->
+                            <!-- </tbody> -->
+                            <!-- </table> -->
                         </div>
                     </div>
                 </div>

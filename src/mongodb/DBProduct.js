@@ -10,14 +10,13 @@ var ProductModel = mongoose.model("product_db", Product);
 
 const ProductDB = {
     addProduct:async function(name,price,count){
-        return ProductModel.create({name:name,price:price,count:count})
+        return await ProductModel.create({name:name,price:price,count:count})
+    },
+    getListProducts:async function(){
+        return await ProductModel.find({});
+    },
+    updateProduct: async function(){
+        return await ProductModel.findOneIdAndUpdate({});
     }
-    // findProduct:async function(name_product,price,count_product){
-    //     return ProductModel.findOne({
-    //         name_product:name_product,
-    //         price:price,
-    //         count_product:count_product
-    //     })
-    // }
 }
 module.exports = ProductDB;

@@ -15,6 +15,9 @@ const ClientDB = {
     addClient: async function(username,password,fullname,phone,address,email){
         return ClientModel.create({username:username,password:password,fullname:fullname,
             phone:phone,address:address,email:email,})
+    },
+    getListClient: async function(){
+        return await ClientModel.find({});
     }
 }
 

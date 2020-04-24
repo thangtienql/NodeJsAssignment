@@ -68,7 +68,6 @@ router.post('/api/client', async function(req,res,next){
   const address = req.body.address;
   const email = req.body.email;
   await ClientDB.addClient(username,password,fullname,phone,address,email);
-
   res.json({
     username:username,
     password:password,
@@ -80,14 +79,35 @@ router.post('/api/client', async function(req,res,next){
 })
 
 //api addProduct
-router.post('/api/product', async function(req,res, next){
+router.post('/api/product/add', async function(req,res, next){
   try{
     console.log(req.body)
     const name = req.body.name;
     const price = req.body.price;
     const count = req.body.count;
     await ProductDB.addProduct(name,price,count);
-    console.log('log',{name,price,count});
+    res.json({
+      message:'dang ky thanh cong'
+     })
+  }catch(e){
+    res.json({
+      message:"dang ky ko thanh cong"
+    })
+  }
+})
+
+
+//api addProduct
+router.post('/api/product/edit', async function(req,res, next){
+  try{
+    console.log("test edit",req.body);
+    
+    const name = req.body.name;
+    const price = req.body.price;
+    const count = req.body.count;
+   
+    await ProductDB.updateProduct({
+      id:req.body.id},req.body);
     res.json({
       message:'dang ky thanh cong'
      })
@@ -108,14 +128,18 @@ router.get('/home', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+
 /* GET Client page. */
 router.get('/clients', function(req, res, next) {
-  const listClient=[]
-  res.render('client', { title: 'Client' ,listClient:listClient});
+  res.render('client', { title: 'Client'});
 });
 
 // Get Product page//
-router.get('/products', function(req, res, next){
-  res.render('product', { title: 'Product'});
+router.get('/products', async function(req, res, next){
+  const listProduct = await ProductDB.getListProducts();
+  console.log("list products:",listProduct)
+  res.render('product', { title: 'Product',listProduct:listProduct});
 });
+
 module.exports = router;
