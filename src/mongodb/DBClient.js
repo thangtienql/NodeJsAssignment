@@ -31,6 +31,9 @@ const ClientDB = {
     updateClientById:async function(id,obj){
         const cl=await ClientModel.findByIdAndUpdate(id,obj);
         return cl;
+    },
+    deleteClient:async function(id){
+        const cl=await ClientModel.findByIdAndRemove(id);
     }
 }
 

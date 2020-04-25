@@ -17,6 +17,15 @@ const ProductDB = {
     },
     updateProduct: async function(){
         return await ProductModel.findOneIdAndUpdate({});
+    },
+    getProcutById:async function(id){
+        return await ProductModel.findById(id)
+    },
+    updateProduct:async function(id,obj){
+        return await ProductModel.findByIdAndUpdate(id,obj);
+    },
+    deleteProduct:async function(id){
+        const cl=await ProductModel.findByIdAndRemove(id);
     }
 }
 module.exports = ProductDB;

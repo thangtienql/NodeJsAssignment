@@ -37,7 +37,7 @@
                       <%= item.count %>
                     </td>
                     <td>
-                      <a href="/edit-client">
+                      <a href="/edit-product/<%= item._id %>">
                         <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
                       </a>
                       <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
@@ -103,7 +103,7 @@
                       <%= item.email %>
                     </td>
                     <td>
-                      <a href="/edit-product">
+                      <a href="/edit-client/<%= item._id %>">
                         <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
                       </a>
                       <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

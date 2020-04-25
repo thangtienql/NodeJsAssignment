@@ -51,18 +51,26 @@
                             <div class="col-lg-6 login-btn login-button">
                                 <button type="submit" class="btn btn-outline-primary">Save</button>
                             </div>
-                            <div class="col-lg-6 login-btn login-button">
-                                <button class="btn btn-outline-primary">Delete</button>
-                            </div>
+                            
                         </div>
                     </form>
-
+                    <form name="form-delete" action="../api/client/delete/<%= client._id  %>" method="POST">
+                            <div class="col-lg-6 login-btn login-button">
+                                <button onclick="detlete()" class="btn btn-outline-primary">Delete</button>
+                            </div>
+                    </form>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-2"></div>
             </div>
         </div>
-
+        <script>
+            function detlete(){
+                const xoa= confirm("Press a button!");
+                if(xoa)
+                    document.getElementById("form-delete").submit();
+            }
+        </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
