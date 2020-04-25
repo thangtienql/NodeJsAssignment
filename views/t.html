@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead class=" text-primary">
+            <th>
+                Tên Sản Phẩm
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Số Lượng
+            </th>
+            <th>
+                Hình Ảnh Sản Phẩm
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <form name="fr" action="/api/product" method="post">
+                    <td>
+                        <input form="fr" name="name" type="text" class="form-control">
+                    </td>
+                    <td>
+                        <input  form="fr"  name="price" type="number" class="form-control">
+                    </td>
+                    <td>
+                        <input  form="fr"  name="count" type="number" class="form-control">
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-submit">Save</button>
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
