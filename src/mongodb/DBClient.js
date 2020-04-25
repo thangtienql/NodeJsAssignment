@@ -24,6 +24,13 @@ const ClientDB = {
             username:username,
             password:password
         })
+    },
+    findById: async function(id){
+        return await ClientModel.findById(id);
+    },
+    updateClientById:async function(id,obj){
+        const cl=await ClientModel.findByIdAndUpdate(id,obj);
+        return cl;
     }
 }
 

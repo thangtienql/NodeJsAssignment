@@ -19,8 +19,33 @@ router.get('/edit-product', function (req, res, next) {
 });
 
 //Get Edit Client Page
-router.get('/edit-client', function (req, res, next) {
-  res.render('edit-client', { title: 'Edit Client' });
+router.get('/edit-client/:id',async function (req, res, next) {
+  const { id = "" } = req.params;
+  let client;
+  try {
+    client= await ClientDB.findById(id);
+    console.log('client:',client);;
+  } catch (error) {
+    console.log("error:",error);
+  }
+  res.render('edit-client', { title: 'Edit Client',client:client});
+});
+
+// api edit client
+router.post('/api/client/edit/:id', async function (req, res, next) {
+  try {
+    const { id = "" } = req.params;
+    const username = req.body.username;
+    const password = req.body.password;
+    const fullname = req.body.fullname;
+    const phone = req.body.phone;
+    const address = req.body.address;
+    const email = req.body.email;
+    const kq= await ClientDB.updateClientById(id,{username, password, fullname, phone, address, email});
+    res.render('ketqua',{title:'Cap nhat client thanh cong'})
+  } catch (e) {
+    res.render('ketqua',{title:'Cap nhat client khong thanh cong'})
+  }
 });
 
 // api login
@@ -88,7 +113,7 @@ router.post('/api/register_user', async function (req, res, next) {
   }
 })
 
-//api client
+//api add, signup client
 router.post('/api/client', async function (req, res, next) {
   try {
     const username = req.body.username;
